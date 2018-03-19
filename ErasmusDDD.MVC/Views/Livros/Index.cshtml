@@ -10,11 +10,11 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 
-@using (Html.BeginForm("Search", "Livros", FormMethod.Get))
+@using (Html.BeginForm("Index", "Livros", FormMethod.Get))
 {
     <p>
-        Nome: @Html.TextBox("name")
-        <input type="submit" value="Filter" />
+        Nome: @Html.TextBox("nome")
+        <input type="submit" value="Search" />
     </p>
 }
 
@@ -34,7 +34,6 @@
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.LivroId }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.LivroId }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.LivroId })
                 </td>
             </tr>

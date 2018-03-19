@@ -17,16 +17,19 @@ namespace ErasmusDDD.MVC.Controllers
         }
 
         // GET: Livro
-        public ActionResult Index()
+        public ActionResult Index(string nome)
         {
-            var livroVM = Mapper.Map<IEnumerable<Livro>, IEnumerable<LivroVM>>(_livroApp.GetAll());
-            return View(livroVM);
-        }
+            IEnumerable<LivroVM> livroVM;
 
-        // TODO Erasmus
-        public ActionResult Search(string nome)
-        {
-            var livroVM = Mapper.Map<IEnumerable<Livro>, IEnumerable<LivroVM>>(_livroApp.Search(nome));
+            if (!string.IsNullOrEmpty(nome))
+            {
+                livroVM = Mapper.Map<IEnumerable<Livro>, IEnumerable<LivroVM>>(_livroApp.Search(nome));
+            }
+            else
+            {
+                livroVM = Mapper.Map<IEnumerable<Livro>, IEnumerable<LivroVM>>(_livroApp.GetAll());
+            }
+
             return View(livroVM);
         }
 
