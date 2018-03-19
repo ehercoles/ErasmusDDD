@@ -30,7 +30,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AppServiceBase.cs" />
+    <Compile Include="Interface\IAppServiceBase.cs" />
+    <Compile Include="Interface\ILivroAppService.cs" />
+    <Compile Include="LivroAppService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ErasmusDDD.Domain\ErasmusDDD.Domain.csproj">
+      <Project>{86e4b6e3-ee8c-4c2d-9287-ab041c7643fb}</Project>
+      <Name>ErasmusDDD.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
